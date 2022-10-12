@@ -12,10 +12,13 @@
         crossorigin="anonymous"
     >
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://unpkg.com/vue-router@4"></script>
 </head>
 </head>
 <body>
     <div id="app">
+        <login-form></login-form>
+        <!--
         <div class="container mt-5">
             <div class="row d-flex justify-content-center">
                 <div class="col-md-6">
@@ -65,11 +68,14 @@
                 </div>
             </div>
         </div>
+    -->
     </div>
 
     <!-- Import App -->
     <script src="./app.js"></script>
 
+    <!-- Import Components -->
+    <script src="./components/Login.js"></script>
 
     <!-- Mount App -->
     <script>
