@@ -71,10 +71,6 @@ app.component('register-form', {
                             Sign Up
                             </button> 
                         </div>
-                        <p class="forgot-password text-right">
-                            Already registered 
-                            <router-link to="/about">Sign In</router-link>
-                        </p>
                     </form>
                     <div class="success-data" v-else>
                         <div class="text-center d-flex flex-column"> 
