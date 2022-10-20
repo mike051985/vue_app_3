@@ -50,7 +50,7 @@ app.component('register-form', {
                             v-bind:class="{'form-control':true, 'is-invalid' : !validPassword(password) && passwordBlured}" 
                             v-on:blur="passwordBlured = true"
                         >
-                                <div class="invalid-feedback">Password must be 8 character!</div>
+                                <div class="invalid-feedback">Password must has at least 8 characters that include at least 1 lowercase character, 1 uppercase characters, 1 number, and 1 special character in (!@#_$%^&*)!</div>
                         </div>
                         <div class="forms-inputs mb-4"> 
                             <span>Confirm Password</span> 
@@ -68,15 +68,19 @@ app.component('register-form', {
                                 v-on:click.stop.prevent="submit" 
                                 class="btn btn-dark w-100"
                             >
-                                Login
+                            Sign Up
                             </button> 
                         </div>
+                        <p class="forgot-password text-right">
+                            Already registered 
+                            <router-link to="/about">Sign In</router-link>
+                        </p>
                     </form>
                     <div class="success-data" v-else>
                         <div class="text-center d-flex flex-column"> 
                             <i class='bx bxs-badge-check'></i> 
                             <span class="text-center fs-1">
-                                You have been registered <br/> Successfully
+                                You have been registering Successfully
                             </span> 
                         </div>
                     </div>
@@ -87,7 +91,7 @@ app.component('register-form', {
     `,
     data: function() {
         return {
-            title: 'Login Form',
+            title: 'Register Form',
             fullName: "",
             fullNameBlured : false,
             email : "",
@@ -102,6 +106,7 @@ app.component('register-form', {
             confirmPasswordBlured:false
         }
     },
+    
     methods:{
  
         validate : function(){
@@ -128,8 +133,8 @@ app.component('register-form', {
         },
  
         validEmail : function(email) {
-            var re = /(.+)@(.+){2,}\.(.+){2,}/;
-            if(re.test(email.toLowerCase())){
+            var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            if(re.test(email)){
                 return true;
             }
  
@@ -142,7 +147,8 @@ app.component('register-form', {
         },
 
         validPassword : function(password) {
-            if (password.length > 7) {
+            var re = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#_\$%\^&\*])(?=.{8,})");
+            if (re.test(password)) {
                 return true;
             }
         },

@@ -1,4 +1,4 @@
-app.component('login-form', {
+app.component('reset-form', {
     template:
     /*html*/
     `
@@ -19,23 +19,12 @@ app.component('login-form', {
                         >
                                 <div class="invalid-feedback">A valid email is required!</div>
                         </div>
-                        <div class="forms-inputs mb-4"> 
-                            <span>Password</span> 
-                            <input 
-                            autocomplete="off" 
-                            type="password" 
-                            v-model="password" 
-                            v-bind:class="{'form-control':true, 'is-invalid' : !validPassword(password) && passwordBlured}" 
-                            v-on:blur="passwordBlured = true"
-                        >
-                                <div class="invalid-feedback">Password must has at least 8 characters that include at least 1 lowercase character, 1 uppercase characters, 1 number, and 1 special character in (!@#_$%^&*)')!</div>
-                        </div>
                         <div class="mb-3"> 
                             <button 
                                 v-on:click.stop.prevent="submit" 
                                 class="btn btn-dark w-100"
                             >
-                                Login
+                                Reset Password
                             </button> 
                         </div>
                     </form>
@@ -43,7 +32,7 @@ app.component('login-form', {
                         <div class="text-center d-flex flex-column"> 
                             <i class='bx bxs-badge-check'></i> 
                             <span class="text-center fs-1">
-                                You have been logging in Successfully
+                                You have been resetting your password Successfully
                             </span> 
                         </div>
                     </div>
@@ -54,21 +43,18 @@ app.component('login-form', {
     `,
     data: function() {
         return {
-            title: 'Login Form',
+            title: 'Reset Password',
             email : "",
             emailBlured : false,
             valid : false,
-            submitted : false,
-            password:"",
-            passwordBlured:false
+            submitted : false
         }
     },
     methods:{
  
         validate : function(){
             this.emailBlured = true;
-            this.passwordBlured = true;
-            if( this.validEmail(this.email) && this.validPassword(this.password)){
+            if( this.validEmail(this.email)){
                 this.valid = true;
             }
         },
@@ -78,16 +64,8 @@ app.component('login-form', {
             if(re.test(email)){
                 return true;
             }
- 
         },
  
-        validPassword : function(password) {
-            var re = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#_\$%\^&\*])(?=.{8,})");
-            if (re.test(password)) {
-                return true;
-            }
-        },
-
         submit : function(){
             this.validate();
             if(this.valid){
