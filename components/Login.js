@@ -54,7 +54,7 @@ app.component('login-form', {
     `,
     data: function() {
         return {
-            title: 'Login Form',
+            title: 'Login',
             email : "",
             emailBlured : false,
             valid : false,

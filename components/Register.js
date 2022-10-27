@@ -31,17 +31,6 @@ app.component('register-form', {
                                 <div class="invalid-feedback">A valid email is required!</div>
                         </div>
                         <div class="forms-inputs mb-4"> 
-                            <span>Confirm Email</span> 
-                            <input 
-                            autocomplete="off" 
-                            type="text" 
-                            v-model="confirmEmail" 
-                            v-bind:class="{'form-control':true, 'is-invalid' : !validConfirmEmail(confirmEmail) && confirmEmailBlured}" 
-                            v-on:blur="confirmEmailBlured = true"
-                        >
-                                <div class="invalid-feedback">Email must be matched!</div>
-                        </div>
-                        <div class="forms-inputs mb-4"> 
                             <span>Password</span> 
                             <input 
                             autocomplete="off" 
@@ -87,13 +76,11 @@ app.component('register-form', {
     `,
     data: function() {
         return {
-            title: 'Register Form',
+            title: 'Sign up',
             fullName: "",
             fullNameBlured : false,
             email : "",
             emailBlured : false,
-            confirmEmail: "",
-            confirmEmailBlured : false,
             valid : false,
             submitted : false,
             password:"",
@@ -108,12 +95,10 @@ app.component('register-form', {
         validate : function(){
             this.fullNameBlured = true;
             this.emailBlured = true;
-            this.confirmEmailBlured = true;
             this.passwordBlured = true;
             this.confirmPasswordBlured = true;
             if(this.validFullName(this.fullName) &&  
                 this.validEmail(this.email) && 
-                this.validConfirmEmail(this.confirmEmail) && 
                 this.validPassword(this.password) && 
                 this.validConfirmPassword(this.confirmPassword)){
                 this.valid = true;
@@ -134,12 +119,6 @@ app.component('register-form', {
                 return true;
             }
  
-        },
-
-        validConfirmEmail: function(confirmEmail) {
-            if(this.email === this.confirmEmail) {
-                return true
-            }
         },
 
         validPassword : function(password) {
