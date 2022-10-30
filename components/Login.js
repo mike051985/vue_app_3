@@ -47,6 +47,7 @@ app.component('login-form', {
                             </span> 
                         </div>
                     </div>
+                    <p>Forget your password?<router-link to="/reset">Reset Password</router-link></p>
                 </div>
             </div>
         </div>
