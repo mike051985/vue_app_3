@@ -5,7 +5,9 @@ app.component('reset-form', {
     <div class="container mt-5">
         <div class="row d-flex justify-content-center">
             <div class="col-md-6">
-                <p><h2 class="text-center">{{ title }}<h2></p>
+                <div>
+                    <h2 class="text-center">{{ title }}</h2>
+                </div>
                 <div class="card px-5 py-5">
                     <form class="form-data" v-if="!submitted">
                         <div class="forms-inputs mb-4"> 
@@ -32,7 +34,7 @@ app.component('reset-form', {
                         <div class="text-center d-flex flex-column"> 
                             <i class='bx bxs-badge-check'></i> 
                             <span class="text-center fs-1">
-                                You have been resetting your password Successfully
+                                You have been resetting your password successfully
                             </span> 
                         </div>
                     </div>
