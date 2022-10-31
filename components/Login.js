@@ -5,7 +5,9 @@ app.component('login-form', {
     <div class="container mt-5">
         <div class="row d-flex justify-content-center">
             <div class="col-md-6">
-                <p><h2 class="text-center">{{ title }}<h2></p>
+                <div>
+                    <h2 class="text-center">{{ title }}</h2>
+                </div>
                 <div class="card px-5 py-5">
                     <form class="form-data" v-if="!submitted">
                         <div class="forms-inputs mb-4"> 
@@ -38,6 +40,10 @@ app.component('login-form', {
                                 Login
                             </button> 
                         </div>
+                        <div>
+                            <p>Forget your password?</p>
+                            <router-link to="/reset" class="text-decoration-none">Reset Password</router-link>
+                        </div>
                     </form>
                     <div class="success-data" v-else>
                         <div class="text-center d-flex flex-column"> 
@@ -47,7 +53,6 @@ app.component('login-form', {
                             </span> 
                         </div>
                     </div>
-                    <p>Forget your password?<router-link to="/reset">Reset Password</router-link></p>
                 </div>
             </div>
         </div>

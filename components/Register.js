@@ -5,7 +5,9 @@ app.component('register-form', {
     <div class="container mt-5">
         <div class="row d-flex justify-content-center">
             <div class="col-md-6">
-                <p><h2 class="text-center">{{ title }}<h2></p>
+                <div>
+                    <h2 class="text-center">{{ title }}</h2>
+                </div>
                 <div class="card px-5 py-5">
                     <form class="form-data" v-if="!submitted">
                         <div class="forms-inputs mb-4"> 
