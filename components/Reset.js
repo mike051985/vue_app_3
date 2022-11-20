@@ -8,7 +8,7 @@ app.component('reset-form', {
                 <div>
                     <h2 class="text-center">{{ title }}</h2>
                 </div>
-                <div class="card px-5 py-5">
+                <div class="card px-5 py-5 bg-secondary">
                     <form class="form-data" v-if="!submitted">
                         <div class="forms-inputs mb-4"> 
                             <span>Email</span> 
@@ -24,7 +24,7 @@ app.component('reset-form', {
                         <div class="mb-3"> 
                             <button 
                                 v-on:click.stop.prevent="submit" 
-                                class="btn btn-dark w-100"
+                                class="btn btn-primary w-100"
                             >
                                 Reset Password
                             </button> 
